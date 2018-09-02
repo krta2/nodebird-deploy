@@ -13,12 +13,21 @@ module.exports = (passport) => {
         done(null, exUser);
       } else {
         console.log('kakao profile: ', profile);
-        const newUser = await User.create({
-          email: profile._json && profile._json.kaccount_email,
-          nick: profile.displayName,
-          snsId: profile.id,
-          provider: 'kakao',
-        });
+        if (!profile._json.kaccount_email) {
+          const newUser = await User.create({
+            nick: profile.displayName,
+            snsId: profile.id,
+            provider: 'kakao',
+          });
+        }
+        else {
+          const newUser = await User.create({
+            email: profile._json && profile._json.kaccount_email,
+            nick: profile.displayName,
+            snsId: profile.id,
+            provider: 'kakao',
+          });
+        }
         done(null, newUser);
       }
     } catch (error) {
