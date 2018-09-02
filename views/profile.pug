@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  .timeline
+    h2 내 정보
+    form#profile-update-form(action='/user/update' method='post')
+      .input-group
+        label(for='profile-email') 로그인 방식
+        input#profile-provider(type='text' name='provider' value=user.provider readonly)
+      .input-group
+        label(for='profile-email') 이메일
+        input#profile-email(type='text' name='email' value=user.email readonly)
+      .input-group
+        label(for='profile-nick') 닉네임
+        input#profile-nick(type='text' name='nick' value=user.nick)
+      if updateError
+        .error-message= updateError
+      button#profile-update-btn.btn(type='submit') 수정
+    #followings.followings.half
+      h2 팔로잉 목록
+      if user.Followings
+        for following in user.Followings
+          div= following.nick
+    #followers.followers.half
+      h2 팔로워 목록
+      if user.Followers
+        for follower in user.Followers
+          div= follower.nick
