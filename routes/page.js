@@ -31,7 +31,7 @@ router.get('/', (req, res, next) => {
   })
   .then((posts) => {
     for (post in posts) {
-      posts[post].date = moment(posts[post].dataValues.createdAt).format('YYYY년MM월DD일 HH시mm분');
+      posts[post].date = moment(posts[post].dataValues.createdAt).tz("Asia/Seoul").format('YYYY년MM월DD일 HH시mm분');
     }
     console.log("posts객체:", posts);
     res.render('main', {
