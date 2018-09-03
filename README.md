@@ -16,4 +16,4 @@ Node.js 교과서, 길벗, 조현영 지음 https://github.com/ZeroCho/nodejs-bo
 * 프로필 정보 조회 및 변경 기능 추가
 * 닉네임 중복 방지 기능 추가
 * 게시글 삭제하기 기능 추가
-등
+* SNS 아이디로 회원가입(첫 로그인) 시 이메일 정보 누락 허용(카카오/네이버 개인정보처리방침 변경에 따름 https://devtalk.kakao.com/t/topic/49545)
