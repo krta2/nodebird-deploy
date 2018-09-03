@@ -30,6 +30,7 @@ block content
             button.twit-unfollow 팔로우끊기
           if user && (user.id == twit.user.id || user.email == 'krta2@naver.com')
             button.twit-delete X
+          .twit-date= twit.date+' 작성'
           .twit-content= twit.content
           if twit.img
             .twit-img

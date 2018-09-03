@@ -1,4 +1,5 @@
 const express = require('express');
+const moment = require('moment');
 const { isLoggedIn, isNotLoggedIn } = require('./middlewares');
 const { Post, User } = require('../models');
 
@@ -29,6 +30,10 @@ router.get('/', (req, res, next) => {
     order: [['createdAt', 'DESC']]
   })
   .then((posts) => {
+    for (post in posts) {
+      posts[post].date = moment(posts[post].dataValues.createdAt).format('YYYY년MM월DD일 HH시mm분');
+    }
+    console.log("posts객체:", posts);
     res.render('main', {
       title: 'NodeBird',
       twits: posts,

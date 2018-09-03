@@ -149,6 +149,7 @@ input[type='text'], input[type='email'], input[type='password'], textarea {
   font-size: 12px;
   cursor: pointer;
 }
+.twit-date { font-size: 12px; margin-bottom: 10px; }
 .twit-img { text-align: center; }
 .twit-img img { max-width: 75%; }
 .error-message { color: blue; font-weight: bold; margin: 1px; }
